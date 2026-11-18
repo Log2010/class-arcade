@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Target Blaster</title>
+  <style>
+    body { background: #121212; color: white; font-family: sans-serif; text-align: center; margin: 0; }
+    .top-bar { background: #1f1f2e; padding: 15px; display: flex; justify-content: space-around; align-items: center; }
+    a.back-btn { color: #a29bfe; text-decoration: none; font-weight: bold; }
+    #game-box { width: 600px; height: 400px; background: #2f3542; margin: 30px auto; position: relative; border-radius: 10px; border: 3px solid #6c5ce7; overflow: hidden; }
+    #target { width: 50px; height: 50px; background: #ff4757; border-radius: 50%; position: absolute; top: 175px; left: 275px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 24px; user-select: none; }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="index.html" class="back-btn">⬅ Back to Arcade</a>
+    <h2>Score: <span id="score">0</span></h2>
+  </div>
+  <div id="game-box">
+    <div id="target" onclick="hitTarget()">🎯</div>
+  </div>
+  <script>
+    let score = 0;
+    const target = document.getElementById('target');
+    function hitTarget() {
+      score++;
+      document.getElementById('score').innerText = score;
+      target.style.left = Math.floor(Math.random() * 540) + 'px';
+      target.style.top = Math.floor(Math.random() * 340) + 'px';
+    }
+  </script>
+</body>
+</html>
